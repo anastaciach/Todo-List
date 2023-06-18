@@ -16,13 +16,30 @@ body {
     display:flex;
     justify-content: center;
 }
-.container__backg{
+.todo{
     background-color: #fff;
     width:100vh;
     height:100vh;
     padding: 20px;
     border-radius: 10%;
 }
-.container__content{
+.todo__content{
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+  
+}
+.todo__title{
     
 }
+.todo__new{
+    display:flex;  
+    flex-direction:row;
+    padding: 1rem   2rem;
+}
+.todo__new input{
+    padding: 8px;
+    margin-right:16px;
+}
+
+.todo__add{}
