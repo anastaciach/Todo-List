@@ -1,7 +1,28 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,600&display=swap');
 :root{
-    
+    --accent:#00ffff;
+}
+html{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
 }
 body {
     font-family: 'Nunito', sans-serif;
+    background-color:var(--accent);
+    width:100hv;
+}
+.container{
+    display:flex;
+    justify-content: center;
+}
+.container__backg{
+    background-color: #fff;
+    width:100vh;
+    height:100vh;
+    padding: 20px;
+    border-radius: 10%;
+}
+.container__content{
+    
 }
