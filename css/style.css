@@ -1,5 +1,3 @@
-@import url('/assets/fonts/Geologica-Regular.ttf');
-
 @font-face {
     font-family:Geologica;
     src:url('/assets/fonts/Geologica-Regular.ttf')
@@ -34,10 +32,8 @@ body {
     display:flex;
     flex-direction:column;
     justify-content:center;
-  
 }
 .todo__title{
-    
 }
 .todo__new{
     --size:25px;
@@ -53,7 +49,6 @@ body {
     border:1px solid var(--default);
     border-radius: 5px;
     flex-grow:1;
-   
 }
 
 .todo__add,.todo__task-del{
@@ -95,4 +90,16 @@ body {
 }
 .todo__task:hover .todo__task-del {
     display:block;
+}
+.todo__checkbox input{
+display:none;
+background-color: var(--default);
+}
+
+.todo__checkbox div{
+--size:16px;
+text-align: center;
+width:var(--size);
+height:var(--size);
+border:1px solid var(--accent);
 }
