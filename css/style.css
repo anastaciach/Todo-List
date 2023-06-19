@@ -43,6 +43,7 @@ body {
     --size:25px;
     display:flex;
     padding: 1rem   2rem;
+    outline: 1px solid red;
 }
 .todo__new input{
     padding: 8px 16px;
@@ -50,13 +51,48 @@ body {
     font-size:15px;
     height:var(--size);
     border:1px solid var(--default);
+    border-radius: 5px;
+    flex-grow:1;
+   
 }
 
-.todo__add{
-    width: 25px;
-    height: 25px;
-    line-height:calc(var(--size)*1.5);
+.todo__add,.todo__task-del{
+    width: var(--size);
+    height: var(--size);
+    padding: 8px;
+    line-height:calc(var(--size)*1);
     text-align:center;
     border:1px solid var(--default);
-    border-radius:var(--size);
+    border-radius: var(--size);
+    background: var( --accent);
+    cursor: pointer;
+    color:#000;
+}
+.todo__list{
+    outline:1px solid green;
+    padding: 16px;
+}
+.todo__task{
+    --size:16px;
+    min-height:var(--size);
+    display:flex;
+}
+.todo__task-text{
+    margin-left: 16px;
+}
+.todo__list-title{
+    font-size:20px;
+    text-align:center;
+}
+.todo__task-del{
+    width:10px;
+    height: 10px;
+    text-align:center;
+    line-height:calc(var(--size)/1.9);
+    margin:auto;
+    margin-right:0;
+    display:none;
+}
+.todo__task:hover .todo__task-del {
+    display:block;
 }
