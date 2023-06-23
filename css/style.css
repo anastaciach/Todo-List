@@ -74,6 +74,7 @@ body {
 }
 .todo__task-text{
     margin-left: 16px;
+    /*line-height:calc(var(--size+20px)/1.9);*/
 }
 .todo__list-title{
     font-size:20px;
