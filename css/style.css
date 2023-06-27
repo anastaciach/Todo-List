@@ -70,12 +70,12 @@ body {
 .todo__task{
     --size:16px;
     min-height:var(--size);
+    /*!!!!!!!!!!!*/
+    max-height: 24px;
+    min-width: var(--size);
     display:flex;
 }
-.todo__task-text{
-    margin-left: 16px;
-    /*line-height:calc(var(--size+20px)/1.9);*/
-}
+
 .todo__list-title{
     font-size:20px;
     text-align:center;
@@ -92,15 +92,43 @@ body {
 .todo__task:hover .todo__task-del {
     display:block;
 }
+.todo__task-text{
+    margin-left: 16px;
+    line-height:calc(var(--size)*1.5);
+   
+}
 .todo__checkbox input{
 display:none;
 background-color: var(--default);
+text-align: center;
 }
-
+.todo__checkbox input:checked+div{
+background: red;
+display: block;
+}
+.todo__checkbox input:checked+div::after{
+    display: block;
+    }
 .todo__checkbox div{
---size:16px;
+--size:24px;
 text-align: center;
 width:var(--size);
 height:var(--size);
 border:1px solid var(--accent);
+border-radius:2px;
+position:relative;
+cursor:pointer;
+}
+.todo__checkbox div::after{
+    content:'\2714';
+    text-align:center;
+    color:#fff;
+    line-height:calc(25px);
+    display:none;
+    position:absolute;
+    top:0;
+    right:0;
+    left:0;
+    bottom: 0;
+
 }
