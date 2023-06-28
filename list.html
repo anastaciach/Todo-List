@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit-no">
         <title>ToDo</title>
         <link rel="stylesheet" href="./css/style.css">
-        <script></script>
+
     </head>
     <body>
         <div class="container">
@@ -13,10 +13,18 @@
                 <div class="todo__content">
                     <h1 class="todo_title">Task List</h1>
                     <div class="todo__new">
-                        <input type="text" placeholder="New task">
-                        <div class="todo__add">+</div>
+                        <input type="text" placeholder="New task" id="new">
+                        <div id="add" class="todo__add" >+</div>
                     </div>
-                    <div class="todo__list">
+                    <div class="todo__list" id="tasks">
+                        <div class="todo__task todo__task-complete">
+                            <label class="todo__checkbox">
+                                <input type="checkbox">
+                                <div></div>
+                            </label>
+                            <div class="todo__task-text">do lessons</div>
+                            <div class="todo__task-del">-</div>
+                        </div>
                         <div class="todo__task">
                             <label class="todo__checkbox">
                                 <input type="checkbox">
@@ -31,4 +39,5 @@
             </div>
         </div>
     </body>
+    <script src="script.js"></script>
 </html>

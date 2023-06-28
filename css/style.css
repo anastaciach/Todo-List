@@ -132,3 +132,10 @@ cursor:pointer;
     bottom: 0;
 
 }
+.todo__list >*:not(:last-child){
+    margin-bottom:8px;
+}
+.todo__task-complete .todo__task-text{
+text-decoration:line-through;
+color:var(--default);
+}
