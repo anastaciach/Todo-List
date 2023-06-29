@@ -6,12 +6,12 @@ const dom = {
 }
 console.log(dom);
 const tasks=[];
-
 dom.add.onclick=()=>{
     const newTaskText=dom.new.value;
-    if(newTaskText && isNotHaveTask(newTaskText,tasks))
-    addTask(newTaskText,tasks);
+    if(newTaskText && isNotHaveTask(newTaskText,tasks)){
+    addTask(newTaskText,tasks);}
     dom.new.value='';
+    tasksRender(tasks);
 }
 //Функция добавления задач
 function addTask(text,list){
@@ -19,7 +19,7 @@ function addTask(text,list){
         const task={
             id:timeStamp,
             text:text,//либо написать просто text
-            isComplate:false
+            isComplete:false
         }
     list.push(task);
     console.log(tasks);
@@ -33,17 +33,22 @@ function isNotHaveTask(text,list){
             isNotHave=false;
         }
     })
+
     return isNotHave;
 }
 //Функция вывода списка задач
 function tasksRender(list){
     let htmlList='';
     list.forEach((task)=>{
-        const cls= task.isComplate ? "todo__task todo__task-complete" :"todo__task";
+        const cls= task.isComplete ?
+        "todo__task todo__task-complete"
+        : "todo__task";
+        const checked=(task.isComplete) ? 'checked':"";
        const taskHtml= `
-       <div id="${task.id}" class="${cls}"            <label class="todo__checkbox">
-                <input type="checkbox" checked="${task.isComplate}">
-                div></div>
+       <div id="${task.id}" class="${cls}">
+            <label class="todo__checkbox">
+                <input type="checkbox" ${checked}">
+                <div></div>
             </label>
             <div class="todo__task-text">${task.text}</div>
             <div class="todo__task-del">-</div>
