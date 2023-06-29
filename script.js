@@ -48,7 +48,7 @@ function tasksRender(list){
        <div id="${task.id}" class="${cls}">
             <label class="todo__checkbox">
                 <input type="checkbox" ${checked}">
-                <div></div>
+                <div class="todo__checkbox-div"></div>
             </label>
             <div class="todo__task-text">${task.text}</div>
             <div class="todo__task-del">-</div>
@@ -57,4 +57,17 @@ function tasksRender(list){
         htmlList+=taskHtml;
     })
     dom.tasks.innerHTML=htmlList;
+}
+dom.tasks.onclick=(event)=>{
+    const target=event.target;
+    const isCheckboxEl =target.classList.contains('todo__checkbox-div');
+    if(isCheckboxEl){
+       const isComplete=target.previousElementSibling.checked;
+       const task=target.parentElement.parentElement;
+       const taskId=task.getAttribute('id');
+       //changeTaskStatus();
+       console.log(taskId);
+    }
+
+
 }
