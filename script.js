@@ -2,7 +2,8 @@
 const dom = {
     new: document.getElementById('new'),
     add: document.getElementById('add'),
-    tasks: document.getElementById('tasks')
+    tasks: document.getElementById('tasks'),
+    count: document.getElementById('count')
 }
 console.log(dom);
 const tasks=[];
@@ -57,17 +58,43 @@ function tasksRender(list){
         htmlList+=taskHtml;
     })
     dom.tasks.innerHTML=htmlList;
+    renderTaskCount(list);
 }
+//Отслеживаем клик по chekсbox задачи
 dom.tasks.onclick=(event)=>{
     const target=event.target;
     const isCheckboxEl =target.classList.contains('todo__checkbox-div');
+    const isDeleteEl =target.classList.contains('todo__task-del');
     if(isCheckboxEl){
-       const isComplete=target.previousElementSibling.checked;
+     // const isComplete=target.previousElementSibling.checked;
        const task=target.parentElement.parentElement;
        const taskId=task.getAttribute('id');
-       //changeTaskStatus();
+       changeTaskStatus(taskId,tasks);
        console.log(taskId);
+       tasksRender(tasks);
     }
-
-
+    if(isDeleteEl){
+        const task=target.parentElement;
+        const taskId=task.getAttribute('id');
+        deleteTask(taskId,tasks);
+    }
+}
+//Функция изменения статуса задачи
+function changeTaskStatus(id,list){
+    list.forEach((task)=>{
+        if(task.id==id)
+        task.isComplete=!task.isComplete;
+    })
+}
+//функция удаления задачи
+function deleteTask(id,list){
+    list.forEach((task,idx)=>{
+        if(task.id==id)
+        list.slice(idx,1);
+    })
+    console.log(list);
+}
+//Вывод кол-ва задач
+function renderTaskCount(list){
+    dom.count.innerHTML=list.length;
 }
